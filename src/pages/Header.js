@@ -4,16 +4,16 @@ import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
 
 const Header = (props) => {
-  const { isLogin, handleLogin } = props;
+  const { isLogin } = props;
   return (
     <div>
       <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
       <center>
         <h1 style={{
-          fontSize: '5rem', fontFamily: 'Fredoka One', color: '#0f5bea',
+          fontSize: '5rem', fontFamily: 'Fredoka One',
         }}
         >
-          Njango
+          <Link to="/" style={{ color: '#0f5bea', textDecoration: 'none' }}>Njango</Link>
         </h1>
         <div
           className="nav"
@@ -23,17 +23,15 @@ const Header = (props) => {
         >
           {isLogin ? (
             <>
-              <Link to="/mypage">mypage</Link>
+              <Link to="/mypage" style={{ textDecoration: 'none' }}>mypage</Link>
             &nbsp; &nbsp;&nbsp;
-              {/* <Link to="/user/signout">logout</Link> */}
-              <button onClick={handleLogin} type="button">logout</button>
+              <Link to="/signout" style={{ textDecoration: 'none' }}>logout</Link>
             </>
           ) : (
             <>
-              <Link to="/user/signup">signup</Link>
+              <Link to="/signup" style={{ textDecoration: 'none' }}>signup</Link>
             &nbsp;&nbsp;&nbsp;
-              {/* <Link to="user/signin">login</Link> */}
-              <button onClick={handleLogin} type="button">login</button>
+              <Link to="/login" style={{ textDecoration: 'none' }}>login</Link>
             </>
           )}
         </div>
