@@ -1,7 +1,10 @@
 /* eslint-disable */
 import React from 'react';
-import { Switch, Route, useHistory, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useHistory, Redirect } from 'react-router-dom';
 
+import Header from './pages/Header';
+import Main from './pages/Main';
+import Result from './pages/Result';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { Mypage } from './pages/Mypage';
@@ -10,7 +13,12 @@ import axios from 'axios';
 class App extends React.Component {
   state = {
     isLogin: false,
-    userinfo: {}
+    userinfo: {},
+    stuff: null/*fakeData*/,
+    selectedStuff: [],
+    recipe: null/*fakeData_r*/,
+    filteredRecipe: [],
+    selectedRecipe: null
   };
 
   handleIsLoginChange() {
@@ -21,11 +29,22 @@ class App extends React.Component {
     });
   }
 
+  searchStuff(e) {
+    this.setState({ selectedStuff: e });
+  }
+
+  searchFilter() {
+    const { recipe, selectedStuff } = this.state;
+    const result = recipe.filter(rcp => selectedStuff.every( el => rcp.stuff.includes(el) ))
+    this.setState({filteredRecipe: result});
+  }
+
   render() {
-    const { isLogin, userinfo } = this.state;
+    const { isLogin, userinfo, stuff, selectedStuff, filteredRecipe } = this.state;
     console.log(isLogin, userinfo);
     return (
       <div>
+        <Header isLogin={isLogin} />
         <Switch>
           <Route
             path="/login"
@@ -47,14 +66,25 @@ class App extends React.Component {
             render={() => <Mypage isLogin={isLogin} userinfo={userinfo} />}
           />
           <Route
-            path="/"
-            render={() => {
-              if (isLogin) {
-                return <Redirect to="/mypage" />;
-              }
-              return <Redirect to="/login" />;
-            }}
-          />
+              path="/recipe/search"
+              render={() => (
+                <Result isLogin={isLogin} selectedStuff={selectedStuff}
+                filteredRecipe={filteredRecipe}/>
+              )}
+            />
+          <Route
+              path="/"
+              exact
+              render={() => (
+                <Main
+                  isLogin={isLogin}
+                  stuff={stuff}
+                  selectedStuff={selectedStuff}
+                  searchStuff={this.searchStuff.bind(this)}
+                  searchFilter={this.searchFilter.bind(this)}
+                />
+              )}
+            />
         </Switch>
       </div>
     );
