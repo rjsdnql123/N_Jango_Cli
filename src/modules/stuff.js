@@ -30,7 +30,7 @@ export const stuffAction = (data) => (dispatch) => {
       dispatch({ type: POST_STUFF_SUCCESS, payload: result.data });
       return [null, true];
     })
-    .error((error) => {
+    .catch((error) => {
       dispatch({ type: POST_STUFF_FAILURE, payload: error });
       return [error, false];
     });

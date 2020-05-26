@@ -24,7 +24,7 @@ export const signupAction = (data) => (dispatch) => {
       dispatch({ tyype: POST_SIGNUP_SUCCESS, payload: result.data });
       return [null, true];
     })
-    .error((error) => {
+    .catch((error) => {
       dispatch({ type: POST_SIGNUP_FAILURE, payload: error });
       return [error, false];
     });

@@ -39,7 +39,7 @@ export const getMypageAction = (data) => (dispatch) => {
       dispatch({ tyype: GET_MYPAGE_SUCCESS, payload: result.data });
       return [null, true];
     })
-    .error((error) => {
+    .catch((error) => {
       dispatch({ type: GET_MYPAGE_FAILURE, payload: error });
       return [error, false];
     });
