@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable no-console */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -9,6 +10,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import './Recipe.css';
 
 class Result extends React.Component {
   constructor(props) {
@@ -19,77 +21,51 @@ class Result extends React.Component {
   }
 
   render() {
-    const { history, selectedStuff, filteredRecipe } = this.props;
-    const result = this.props.filteredRecipe.length;
+    const {
+      history, selectedStuff, filteredRecipe, routeRecipe } = this.props;
+    const result = filteredRecipe.length;
     const filterText = selectedStuff.sort().join(', ');
     return (
       <div>
-        <div
-          className="recipe-list"
-          style={{
-            width: '30%',
-            borderStyle: 'double',
-            margin: '2% auto',
-            padding: '1%',
-            backgroundColor: '#92a8d1',
-            overflow: 'hidden',
-          }}
-        >
-          <div style={{
-            fontSize: '1.7rem', whiteSpace: 'nowrap',
-          }}
-          >
-            레시피 검색 결과
-            <span style={{
-              fontSize: '1rem', paddingLeft: '1%',
-            }}
-            >
-              (
-              {result}
-              건)
-            </span>
-            <span style={{
-              fontSize: '1rem', paddingLeft: '1%', color: 'blue'
-            }}>filtered : {filterText}</span>
-          </div>
-          <br />
-          <ul style={{
-            width: '100%',
-            listStyle: 'none',
-            margin: '0',
-            padding: '0',
-            float: 'left',
-          }}
-          >
-            { filteredRecipe.map((rcp) => {
-              return (
-                <li style={{
-                  whiteSpace: 'nowrap', overflow: 'hidden', padding: '3%',
-                }}
-                >
-                  <img src={rcp.image} width="100px" height="100px" style={{ float: 'left', paddingRight: '2%' }} alt="" />
-                  <Link to={`/recipe/${rcp.id}`}>{rcp.name}</Link>
-                  <div style={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
-                    {rcp.description}
-                  </div>
-                </li>
-              );
-            }) }
-          </ul>
+        <div className="page-layout">
+          {(filteredRecipe.length < 1) ? (
+            <center>레시피 검색 결과가 없습니다
+              <p>
+                <Link to="/" className="not-found-back">
+                  Back
+              </Link>
+              </p>
+            </center>
+          ) : (
+              <>
+                <div className="page-title">
+                  레시피 검색 결과
+              <span className="result-count">
+                    ({result}건)
+              </span>
+                  <span className="selected-stuff">
+                    filtered : {filterText}
+                  </span>
+                </div>
+                <br />
+                <ul className="recipe-list">
+                  {filteredRecipe.map((rcp, idx) => (
+                    <li className="recipe" key={idx}>
+                      <img className="recipe-list-img" src={rcp.image} alt="" />
+                      <Link to={`/recipe/${rcp.id}`} onClick={function r() { routeRecipe(rcp.id); }}>
+                        {rcp.name}
+                      </Link>
+                      <div className="recipe-list-desc">
+                        {rcp.description}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <img className="back-btn" src="https://vectorified.com/images/go-back-icon-31.png"
+                  onClick={function back() { history.goBack(); }} alt="" />
+              </>
+            )}
         </div>
-        <img
-          name="backbtn"
-          src="https://vectorified.com/images/go-back-icon-31.png"
-          style={{
-            width: '5%',
-            height: '10%',
-            cursor: 'pointer',
-            position: 'fixed',
-            bottom: '1%',
-            right: '1%',
-          }}
-          onClick={function(){history.goBack()}}
-        />
       </div>
     );
   }

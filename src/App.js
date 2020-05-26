@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, useHistory, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import Header from './pages/Header';
 import Main from './pages/Main';
@@ -10,14 +10,16 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { Mypage } from './pages/Mypage';
 import axios from 'axios';
+import { fakeData } from './fakeData';
+import { fakeData_r } from './fakeData_r';
 
 class App extends React.Component {
   state = {
     isLogin: false,
     userinfo: {},
-    stuff: null/*fakeData*/,
+    stuff: fakeData,
     selectedStuff: [],
-    recipe: null/*fakeData_r*/,
+    recipe: fakeData_r,
     filteredRecipe: [],
     selectedRecipe: null
   };
