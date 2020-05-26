@@ -27,7 +27,7 @@ export const stuffAction = (data) => (dispatch) => {
   return postStuffAPI(data)
     .then((result) => {
       console.log(`${result} = post stuff api result`);
-      dispatch({ tyype: POST_STUFF_SUCCESS, payload: result.data });
+      dispatch({ type: POST_STUFF_SUCCESS, payload: result.data });
       return [null, true];
     })
     .error((error) => {
