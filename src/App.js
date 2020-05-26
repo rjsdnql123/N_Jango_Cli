@@ -23,7 +23,7 @@ class App extends React.Component {
     recipe: fakeData_r,
     filteredRecipe: [],
     selectedRecipe: null,
-    isLoading: true,
+    isLoading: false,
   };
 
   handleIsLoginChange() {
@@ -52,11 +52,6 @@ class App extends React.Component {
     this.setState({ selectedRecipe: result });
   }
 
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ isLoading: !this.state.isLoading });
-    }, 2000);
-  }
   render() {
     const {
       isLogin,
@@ -70,7 +65,7 @@ class App extends React.Component {
     return (
       <div className="root">
         {isLoading && <Loading isLoading={isLoading} />}
-        <Header isLogin={isLogin} />
+        <Header />
         <Switch>
           <Route
             path="/login"
