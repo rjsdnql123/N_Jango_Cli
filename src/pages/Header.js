@@ -2,6 +2,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
+import './Recipe.css';
 
 const Header = (props) => {
   const { isLogin } = props;
@@ -12,46 +13,29 @@ const Header = (props) => {
         rel="stylesheet"
       />
       <center>
-        <h1
-          style={{
-            fontSize: '5rem',
-            fontFamily: 'Fredoka One',
-          }}
-        >
-          <Link to="/" style={{ color: '#0f5bea', textDecoration: 'none' }}>
+        <h1>
+          <Link to="/" className="site-logo">
             Njango
           </Link>
         </h1>
-        <div
-          className="nav"
-          style={{
-            width: '30%',
-            padding: '0.5%',
-            backgroundColor: '#BBDEFB',
-          }}
-        >
-          <div className="toggleNav">
-            <span className="toggleBtn" />
-            <span className="toggleBtn" />
-            <span className="toggleBtn" />
-          </div>
+        <div className="nav">
           {isLogin ? (
             <>
-              <Link to="/mypage" style={{ textDecoration: 'none' }}>
+              <Link to="/mypage" className="nav-link">
                 mypage
               </Link>
               &nbsp; &nbsp;&nbsp;
-              <Link to="/signout" style={{ textDecoration: 'none' }}>
+              <Link to="/signout" className="nav-link">
                 logout
               </Link>
             </>
           ) : (
             <>
-              <Link to="/signup" style={{ textDecoration: 'none' }}>
+              <Link to="/signup" className="nav-link">
                 signup
               </Link>
               &nbsp;&nbsp;&nbsp;
-              <Link to="/login" style={{ textDecoration: 'none' }}>
+              <Link to="/login" className="nav-link">
                 login
               </Link>
             </>

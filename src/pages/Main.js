@@ -1,8 +1,10 @@
+/* eslint-disable consistent-return */
 /* eslint-disable react/prop-types */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import './Recipe.css';
 
 class Main extends React.Component {
   constructor(props) {
@@ -42,62 +44,30 @@ class Main extends React.Component {
               history.push('/recipe/search');
             }}
           >
-            <div
-              className="stuff-list"
-              style={{
-                width: '30%',
-                borderStyle: 'double',
-                margin: '2% auto',
-                padding: '1%',
-                backgroundColor: '#92a8d1',
-                whiteSpace: 'pre-line',
-              }}
-            >
-              <div
-                style={{
-                  fontSize: '1.7rem',
-                }}
-              >
+            <div className="page-layout">
+              <div className="page-title">
                 재료 목록
-                <button
-                  className="stfaddbtn"
-                  style={{
-                    margin: '0.2% 2%',
-                    borderRadius: '8%',
-                    backgroundColor: '#BBDEFB',
-                  }}
-                  type="button"
-                >
+                <button className="stuff-add-btn" type="button">
                   추가
                 </button>
               </div>
               <br />
-              {stuff.map((stf) => (
-                <label>
-                  <input
-                    type="checkbox"
-                    name="my_stuff"
-                    value={stf.stuff_name}
-                    onChange={this.onChange.bind(this)}
-                  />
-                  {stf.stuff_name}
-                  <img src={stf.icon} width="30px" height="30px" alt="" />
-                </label>
-              ))}
+              <div className="stuff-list">
+                {stuff.map((stf, idx) => (
+                  <label key={idx}>
+                    <input
+                      type="checkbox"
+                      name="check-stuff"
+                      value={stf.stuff_name}
+                      onChange={this.onChange.bind(this)}
+                    />
+                    {stf.stuff_name}
+                    <img className="stuff-icon" src={stf.icon} alt="" />
+                  </label>
+                ))}
+              </div>
             </div>
-            <button
-              name="searchbtn"
-              type="submit"
-              style={{
-                width: '10%',
-                maxWidth: '150px',
-                margin: '0.4%',
-                borderRadius: '8%',
-                fontSize: '2rem',
-                padding: '0.5%',
-                backgroundColor: 'skyblue',
-              }}
-            >
+            <button className="search-btn" type="submit">
               search
             </button>
           </form>
