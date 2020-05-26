@@ -18,6 +18,12 @@
   text-decoration: none;
 }
 
+.login-rayout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .page-layout {
   width: 30%;
   border-style: double;

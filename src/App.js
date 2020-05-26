@@ -9,7 +9,6 @@ import Recipe from './pages/Recipe';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Mypage from './mypage/Mypage';
-import Loading from './pages/Loading';
 import axios from 'axios';
 import { fakeData } from './fakeData';
 import { fakeData_r } from './fakeData_r';
@@ -67,15 +66,7 @@ class App extends React.Component {
         {isLoading && <Loading isLoading={isLoading} />}
         <Header />
         <Switch>
-          <Route
-            path="/login"
-            render={() => (
-              <Login
-                isLogin={isLogin}
-                handleIsLoginChange={this.handleIsLoginChange.bind(this)}
-              />
-            )}
-          />
+          <Route path="/login" render={() => <Login />} />
           <Route
             exact
             path="/signup"

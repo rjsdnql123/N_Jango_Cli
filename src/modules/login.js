@@ -35,7 +35,7 @@ export const loginAction = (data) => (dispatch) => {
       dispatch({ tyype: POST_LOGIN_SUCCESS, payload: result.data });
       return [null, true];
     })
-    .error((error) => {
+    .catch((error) => {
       dispatch({ type: POST_LOGIN_FAILURE, payload: error });
       return [error, false];
     });
