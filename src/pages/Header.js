@@ -7,31 +7,53 @@ const Header = (props) => {
   const { isLogin } = props;
   return (
     <div>
-      <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap"
+        rel="stylesheet"
+      />
       <center>
-        <h1 style={{
-          fontSize: '5rem', fontFamily: 'Fredoka One',
-        }}
+        <h1
+          style={{
+            fontSize: '5rem',
+            fontFamily: 'Fredoka One',
+          }}
         >
-          <Link to="/" style={{ color: '#0f5bea', textDecoration: 'none' }}>Njango</Link>
+          <Link to="/" style={{ color: '#0f5bea', textDecoration: 'none' }}>
+            Njango
+          </Link>
         </h1>
         <div
           className="nav"
           style={{
-            width: '20%', maxWidth: '220px', padding: '0.5%', backgroundColor: '#BBDEFB',
+            width: '30%',
+            padding: '0.5%',
+            backgroundColor: '#BBDEFB',
           }}
         >
+          <div className="toggleNav">
+            <span className="toggleBtn" />
+            <span className="toggleBtn" />
+            <span className="toggleBtn" />
+          </div>
           {isLogin ? (
             <>
-              <Link to="/mypage" style={{ textDecoration: 'none' }}>mypage</Link>
-            &nbsp; &nbsp;&nbsp;
-              <Link to="/signout" style={{ textDecoration: 'none' }}>logout</Link>
+              <Link to="/mypage" style={{ textDecoration: 'none' }}>
+                mypage
+              </Link>
+              &nbsp; &nbsp;&nbsp;
+              <Link to="/signout" style={{ textDecoration: 'none' }}>
+                logout
+              </Link>
             </>
           ) : (
             <>
-              <Link to="/signup" style={{ textDecoration: 'none' }}>signup</Link>
-            &nbsp;&nbsp;&nbsp;
-              <Link to="/login" style={{ textDecoration: 'none' }}>login</Link>
+              <Link to="/signup" style={{ textDecoration: 'none' }}>
+                signup
+              </Link>
+              &nbsp;&nbsp;&nbsp;
+              <Link to="/login" style={{ textDecoration: 'none' }}>
+                login
+              </Link>
             </>
           )}
         </div>

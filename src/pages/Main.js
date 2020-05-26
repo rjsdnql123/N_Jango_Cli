@@ -53,15 +53,18 @@ class Main extends React.Component {
                 whiteSpace: 'pre-line',
               }}
             >
-              <div style={{
-                fontSize: '1.7rem',
-              }}
+              <div
+                style={{
+                  fontSize: '1.7rem',
+                }}
               >
                 재료 목록
                 <button
                   className="stfaddbtn"
                   style={{
-                    margin: '0.2% 2%', borderRadius: '8%', backgroundColor: '#BBDEFB',
+                    margin: '0.2% 2%',
+                    borderRadius: '8%',
+                    backgroundColor: '#BBDEFB',
                   }}
                   type="button"
                 >
@@ -69,19 +72,30 @@ class Main extends React.Component {
                 </button>
               </div>
               <br />
-              { stuff.map((stf) => (
+              {stuff.map((stf) => (
                 <label>
-                  <input type="checkbox" name="my_stuff" value={stf.stuff_name} onChange={this.onChange.bind(this)} />
+                  <input
+                    type="checkbox"
+                    name="my_stuff"
+                    value={stf.stuff_name}
+                    onChange={this.onChange.bind(this)}
+                  />
                   {stf.stuff_name}
                   <img src={stf.icon} width="30px" height="30px" alt="" />
                 </label>
-              )) }
+              ))}
             </div>
             <button
               name="searchbtn"
               type="submit"
               style={{
-                width: '10%', maxWidth: '150px', margin: '0.4%', borderRadius: '8%', fontSize: '2rem', padding: '0.5%', backgroundColor: 'skyblue',
+                width: '10%',
+                maxWidth: '150px',
+                margin: '0.4%',
+                borderRadius: '8%',
+                fontSize: '2rem',
+                padding: '0.5%',
+                backgroundColor: 'skyblue',
               }}
             >
               search
