@@ -12,7 +12,7 @@ import Mypage from './mypage/Mypage';
 import axios from 'axios';
 import { fakeData } from './fakeData';
 import { fakeData_r } from './fakeData_r';
-
+import './App.css';
 class App extends React.Component {
   state = {
     isLogin: true,
