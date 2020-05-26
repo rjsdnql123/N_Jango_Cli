@@ -26,18 +26,6 @@ class Main extends React.Component {
       stuffActions: { toggleSelectStuff },
     } = this.props;
     toggleSelectStuff(e.target.value);
-
-    // const { selectedStuff } = this.state;
-    // const { searchStuff } = this.props;
-    // const val = e.target.value;
-    // const chk = e.target.checked;
-    // if (chk) {
-    //   selectedStuff.push(val);
-    // } else {
-    //   selectedStuff.splice(selectedStuff.indexOf(val), 1);
-    // }
-    // this.setState({ selectedStuff });
-    // searchStuff(selectedStuff);
   }
 
   render() {
