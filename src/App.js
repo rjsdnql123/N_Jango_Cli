@@ -98,19 +98,7 @@ class App extends React.Component {
               />
             )}
           />
-          <Route
-            path="/"
-            exact
-            render={() => (
-              <Main
-                isLogin={isLogin}
-                stuff={stuff}
-                selectedStuff={selectedStuff}
-                searchStuff={this.searchStuff.bind(this)}
-                searchFilter={this.searchFilter.bind(this)}
-              />
-            )}
-          />
+          <Route path="/" exact render={() => <Main />} />
         </Switch>
       </div>
     );

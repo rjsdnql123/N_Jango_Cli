@@ -53,10 +53,10 @@ export default handleActions(
       pending: false,
       error: true,
     }),
-    [ADD_SELECT_STUFF]: (state, payload) => {
+    [ADD_SELECT_STUFF]: (state, { payload }) => {
       const newStuff = state.selectStuff.slice();
       newStuff.forEach((el, idx) => {
-        if (el.name === payload.name) {
+        if (el === payload) {
           newStuff.splice(idx, 1);
         }
       });
@@ -65,7 +65,7 @@ export default handleActions(
       }
       return {
         ...state,
-        selectStuff: [...state.selectStuff, ...newStuff],
+        selectStuff: [...newStuff],
       };
     },
   },
