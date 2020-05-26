@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route, useHistory, Redirect } from 're
 import Header from './pages/Header';
 import Main from './pages/Main';
 import Result from './pages/Result';
+import Recipe from './pages/Recipe';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { Mypage } from './pages/Mypage';
@@ -39,6 +40,12 @@ class App extends React.Component {
     this.setState({filteredRecipe: result});
   }
 
+  routeRecipe(e) {
+    const { recipe } = this.state;
+    const result = recipe.filter(rcp => rcp.id === e );
+    this.setState({selectedRecipe: result});
+  }
+
   render() {
     const { isLogin, userinfo, stuff, selectedStuff, filteredRecipe } = this.state;
     console.log(isLogin, userinfo);
@@ -69,9 +76,15 @@ class App extends React.Component {
               path="/recipe/search"
               render={() => (
                 <Result isLogin={isLogin} selectedStuff={selectedStuff}
-                filteredRecipe={filteredRecipe}/>
+                filteredRecipe={filteredRecipe}
+                routeRecipe={this.routeRecipe.bind(this)}/>
               )}
             />
+          <Route
+              exact
+              path="/recipe/:id"
+              render={(props) => <Recipe isLogin={isLogin} selectedRecipe={fakeData_r[`${props.match.params.id}`-1]} />}
+          />
           <Route
               path="/"
               exact
