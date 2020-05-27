@@ -1,8 +1,14 @@
 /* eslint-disable */
 import React from 'react';
-import { Link, Route, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
-import "./Login.css"
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as loginAction from '../modules/login';
+
+import Input from '../components/Input';
+import Button from '../components/Button';
+import './Login.css';
 
 axios.defaults.withCredentials = true;
 
@@ -12,95 +18,54 @@ class Login extends React.Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
     };
-    this.handleInputValue = this.handleInputValue.bind(this);
   }
-  handleInputValue = key => e => {
+  handleInputValue = (key) => (e) => {
     this.setState({ [key]: e.target.value });
   };
+  submitHandle(e) {
+    e.preventDefault();
+    loginAction(this.state);
+  }
   render() {
     const { email, password } = this.state;
-    const { handleIsLoginChange } = this.props;
+    const { loginAction } = this.props.loginAction;
     return (
-      <div>
-        <center>
+      <div className="login-rayout">
         <h1>Njango</h1>
-          <h2>Sign In</h2>
-          <form
-            onSubmit={e => {
-              e.preventDefault();
-              // TODO : 서버에 로그인 요청 후 처리하세요.
-              return axios
-                .post('http://localhost:4000/signin', {
-                  email: email,
-                  password: password
-                })
-                .then(() => {
-                  handleIsLoginChange();
-                  this.props.history.push('/');
-                })
-                .catch(err => console.log(err));
-            }}
-          >
-            <div>
-              <input
-                style={{
-                  width: '400px',
-                  height: '30px',
-                  margin: '5px',
-                  borderRadius: '5px'
-                }}
-                type="email"
-                placeholder="아이디"
-                onChange={this.handleInputValue('email')}
-              ></input>
-            </div>
-            <div>
-              <input
-                style={{
-                  width: '400px',
-                  height: '30px',
-                  margin: '5px',
-                  borderRadius: '5px'
-                }}
-                type="password"
-                placeholder="비밀번호"
-                onChange={this.handleInputValue('password')}
-              ></input>
-            </div>
-            
-            <button
-              style={{
-                width: '400px',
-                height: '30px',
-                margin: '5px',
-                borderRadius: '5px',
-                backgroundColor: 'orange'
-              }}
-              type="submit"
-            >
-              로그인
-            </button>
-            <div>
-            <span >
-              <Link to="/">
-                <button >메인페이지</button>
-              </Link>
-            </span>
-            <span >
-              <Link to="/signup">
-                <button >회원가입하기</button>
-              </Link>
-            </span>
-            </div>
-            
-        
-          </form>
-        </center>
+        <h2>Sign In</h2>
+        <form onSubmit={this.submitHandle.bind(this)}>
+          <div>
+            <Input
+              type="email"
+              placeholder="아이디"
+              value={email}
+              onChange={this.handleInputValue('email').bind(this)}
+            />
+          </div>
+          <div>
+            <Input
+              type="password"
+              placeholder="비밀번호"
+              value={password}
+              onChange={this.handleInputValue('password').bind(this)}
+            />
+          </div>
+          <Button text="로그인" />
+        </form>
       </div>
     );
   }
 }
 
-export default withRouter(Login);
+export default withRouter(
+  connect(
+    (state) => ({
+      isLogin: state.login.isLogin,
+    }),
+    (dispatch) => ({
+      loginAction: bindActionCreators(loginAction, dispatch),
+    }),
+  )(Login),
+);

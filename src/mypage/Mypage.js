@@ -1,35 +1,37 @@
 /* eslint-disable */
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Route,
   Redirect,
   Switch,
-} from "react-router-dom";
-import Header from "./Header";
-import Stuff from "./Stuff";
-import Recipe from "./Recipe";
-import Like from "./Like";
-import Follow from "./Follow";
-import Comment from "./Comment";
-import "./Mypage.css";
+} from 'react-router-dom';
+import Header from './Header';
+// import Stuff from './Stuff';
+// import Recipe from './Recipe';
+// import Like from './Like';
+// import Follow from './Follow';
+// import Comment from './Comment';
+// import './Mypage.css';
 
 axios.defaults.withCredentials = true;
 
-export default () => (
-  <Router>
-    <Header />
-    <Switch>
-      <Route path="/mypage" exact component={Stuff} />
-      <Route path="/mypage/recipe" component={Recipe} />
-      <Route path="/mypage/like" component={Like} />
-      <Route path="/mypage/follow" component={Follow} />
-      <Route path="/mypage/comment" component={Comment} />
-      <Redirect from="*" to="/mypage" />
-    </Switch>
-  </Router>
-);
+export default () => {
+  return (
+    <Router>
+      <Header />
+      <Switch>
+        {/* <Route path="/mypage" exact component={Stuff} /> */}
+        {/* <Route path="/mypage/recipe" component={Recipe} />
+        <Route path="/mypage/like" component={Like} />
+        <Route path="/mypage/follow" component={Follow} />
+        <Route path="/mypage/comment" component={Comment} /> */}
+        <Redirect from="*" to="/mypage" />
+      </Switch>
+    </Router>
+  );
+};
 // export function Mypage(props) {
 //   const { isLogin, userinfo } = props;
 //   const userinfok = {
