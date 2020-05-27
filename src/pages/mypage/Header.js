@@ -12,7 +12,7 @@ export default () => (
         </Link>
       </li>
       <li className="li">
-        <Link to="./Recipe" className="link">
+        <Link to="/mypage/recipe" className="link">
           내 레시피
         </Link>
       </li>

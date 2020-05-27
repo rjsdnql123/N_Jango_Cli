@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+#root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .root {
   width: 640px;
 }

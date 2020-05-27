@@ -8,7 +8,7 @@ import Result from './pages/Result';
 import Recipe from './pages/Recipe';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Mypage from './mypage/Mypage';
+import Mypage from './pages/mypage/Mypage';
 import axios from 'axios';
 import { fakeData } from './fakeData';
 import { fakeData_r } from './fakeData_r';
@@ -63,17 +63,11 @@ class App extends React.Component {
     console.log(isLogin, userinfo);
     return (
       <div className="root">
-        {isLoading && <Loading isLoading={isLoading} />}
         <Header />
         <Switch>
           <Route path="/login" render={() => <Login />} />
+          <Route exact path="/signup" render={() => <Signup />} />
           <Route
-            exact
-            path="/signup"
-            render={() => <Signup isLogin={isLogin} />}
-          />
-          <Route
-            exact
             path="/mypage"
             render={() => <Mypage isLogin={isLogin} userinfo={userinfo} />}
           />
