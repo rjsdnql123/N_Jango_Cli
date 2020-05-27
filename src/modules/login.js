@@ -32,7 +32,7 @@ export const loginAction = (data) => (dispatch) => {
       console.log(`${result} = post login api result`);
       localStorage.setItem('token', result.data);
       localStorage.setItem('isLogin', 'true');
-      dispatch({ tyype: POST_LOGIN_SUCCESS, payload: result.data });
+      dispatch({ type: POST_LOGIN_SUCCESS, payload: result.data });
       return [null, true];
     })
     .catch((error) => {

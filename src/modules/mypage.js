@@ -36,7 +36,7 @@ export const getMypageAction = (data) => (dispatch) => {
   return getMypageAPI(data)
     .then((result) => {
       console.log(`${result} = get mypage api result`);
-      dispatch({ tyype: GET_MYPAGE_SUCCESS, payload: result.data });
+      dispatch({ type: GET_MYPAGE_SUCCESS, payload: result.data });
       return [null, true];
     })
     .catch((error) => {

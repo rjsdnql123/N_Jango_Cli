@@ -21,7 +21,7 @@ export const signupAction = (data) => (dispatch) => {
   return postSignupAPI(data)
     .then((result) => {
       console.log(`${result} = post signup api result`);
-      dispatch({ tyype: POST_SIGNUP_SUCCESS, payload: result.data });
+      dispatch({ type: POST_SIGNUP_SUCCESS, payload: result.data });
       return [null, true];
     })
     .catch((error) => {
