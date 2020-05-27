@@ -63,17 +63,11 @@ class App extends React.Component {
     console.log(isLogin, userinfo);
     return (
       <div className="root">
-        {isLoading && <Loading isLoading={isLoading} />}
         <Header />
         <Switch>
           <Route path="/login" render={() => <Login />} />
+          <Route exact path="/signup" render={() => <Signup />} />
           <Route
-            exact
-            path="/signup"
-            render={() => <Signup isLogin={isLogin} />}
-          />
-          <Route
-            exact
             path="/mypage"
             render={() => <Mypage isLogin={isLogin} userinfo={userinfo} />}
           />

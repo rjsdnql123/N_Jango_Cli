@@ -10,7 +10,6 @@ import Nav from '../components/Nav';
 
 const Header = (props) => {
   const { isLogin } = props;
-  console.log(isLogin);
   return (
     <div className="header">
       <Logo />

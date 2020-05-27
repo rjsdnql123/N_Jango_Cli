@@ -1,6 +1,8 @@
 import { handleActions } from 'redux-actions';
 import axios from 'axios';
 
+import { fakeData_r } from '../fakeData_r';
+
 const URL = 'http://15.164.220.81:5000/';
 const GET_MYPAGE_PEDING = 'GET_MYPAGE_PEDING';
 const GET_MYPAGE_SUCCESS = 'GET_MYPAGE_SUCCESS';
@@ -30,6 +32,13 @@ const initialState = {
   },
 };
 
+export const fakeAPI = () => (dispatch) => {
+  dispatch({ type: GET_MYPAGE_PEDING });
+  return setTimeout(() => {
+    dispatch({ type: GET_MYPAGE_SUCCESS, payload: { recipes: fakeData_r } });
+  }, 3000);
+};
+
 export const getMypageAction = (data) => (dispatch) => {
   dispatch({ type: GET_MYPAGE_PEDING });
 
@@ -52,7 +61,7 @@ export default handleActions(
       pending: true,
       error: false,
     }),
-    [GET_MYPAGE_SUCCESS]: (state, payload) => ({
+    [GET_MYPAGE_SUCCESS]: (state, { payload }) => ({
       ...state,
       pending: false,
       error: false,

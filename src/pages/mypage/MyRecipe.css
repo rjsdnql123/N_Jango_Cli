@@ -1,0 +1,22 @@
+.myRecipe {
+  display: grid;
+  padding: 5px;
+  grid-template-columns: auto auto;
+  grid-template-rows: 75px 75px 75px 75px;
+  grid-gap: 5%;
+  grid-auto-flow: dense;
+}
+
+.myRecipe :nth-child(n) {
+  grid-row: span 2;
+}
+
+.myRecipe :nth-child(6n + 1) {
+  grid-row: span 4;
+}
+
+.myRecipe :nth-child(6n) {
+  grid-row: span 4;
+}
+
+/* 1, 6, 7, 12 */

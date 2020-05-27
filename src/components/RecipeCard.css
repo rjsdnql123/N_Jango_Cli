@@ -1,0 +1,8 @@
+.recipeCard img {
+  width: 100%;
+  height: 100%;
+}
+
+.recipeCard :hover {
+  cursor: pointer;
+}

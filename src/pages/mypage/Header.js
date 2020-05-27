@@ -1,11 +1,11 @@
 // eslint-disable-next-line quotes
 /* eslint-disable */
-import React from "react";
+import React from 'react';
 // eslint-disable-next-line quotes
-import { Link } from "react-router-dom";
-import "./mypageHeader.css"
+import { Link } from 'react-router-dom';
+import './mypageHeader.css';
 
-export default () => (
+const MyHeader = () => (
   <div>
     <center>
       <div className="mypageheader">
@@ -13,30 +13,32 @@ export default () => (
           <li className="li">
             <Link to="/mypage/" className="link">
               내 냉장고
-        </Link>
+            </Link>
           </li>
           <li className="li">
             <Link to="/mypage/recipe" className="link">
               내 레시피
-        </Link>
+            </Link>
           </li>
           <li className="li">
             <Link to="/mypage/like" className="link">
               좋아요
-        </Link>
+            </Link>
           </li>
           <li className="li">
             <Link to="/mypage/follow" className="link">
               팔로우
-        </Link>
+            </Link>
           </li>
           <li className="li">
             <Link to="/mypage/comment" className="link">
               내 댓글
-        </Link>
+            </Link>
           </li>
         </ul>
       </div>
     </center>
   </div>
 );
+
+export default MyHeader;
