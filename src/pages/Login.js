@@ -35,7 +35,7 @@ class Login extends React.Component {
       <div className="login-rayout">
         <h1>Njango</h1>
         <h2>Sign In</h2>
-        <form onSubmit={this.submitHandle}>
+        <form onSubmit={this.submitHandle.bind(this)}>
           <div>
             <Input
               type="email"
