@@ -1,0 +1,11 @@
+.stuff-layout {
+    width: 70%;
+	border-style: double;
+	margin: 2% auto;
+	padding: 1%;
+	background-color: #92a8d1;
+	white-space: pre-line;
+	overflow: hidden;
+	display: flex;
+	overflow-x: scroll;
+}
