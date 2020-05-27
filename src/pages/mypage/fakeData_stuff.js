@@ -1,0 +1,66 @@
+/* eslint-disable */
+export const fakeData_stuff = [{
+    id: 1,
+    stuffname: "돼지고기",
+    limitday: "2020-05-30",
+    category_id: 1,
+    category_name: "육류",
+    icon: "https://garitonkids.com/wp-content/uploads/2020/03/2337_3.png"
+}, {
+    id: 2,
+    stuffname: '참치캔',
+    icon: 'https://static.martroo.com/_data/product/201702/13/8801047121985_2.png',
+    category_id: 3,
+    category_name: ['가공품'],
+    limitday: "2020-05-31",
+}, {
+    id: 3,
+    stuffname: '계란',
+    icon: 'https://post-phinf.pstatic.net/MjAxNzEyMjhfMjkg/MDAxNTE0NDQzOTY4MDIw.W8euVKDcMpBRhs9yM-DmMlFauTaze1_qwvsiEzFS4bMg.hrXLccr89AIkyn8afAQSqq8S0QizOSlaOorS43PHNvQg.PNG/Photo-egg-3.png',
+    category_id: 3,
+    category_name: ['유제품'],
+    limitday: "2020-05-31",
+}, {
+    id: 4,
+    stuffname: '밥',
+    category_id: 4,
+    category_name: ['곡식'],
+    limitday: "2020-06-30",
+    icon: 'https://t1.daumcdn.net/cfile/tistory/99146D3B5D11088C07',
+}, {
+    id: 5,
+    stuffname: '라면',
+    icon: 'https://www.samyangfoods.com/upload/product/20191125/20191125095447510267.png',
+    category_name: ['인스턴트'],
+    limitday: "2020-05-23",
+}, {
+    id: 6,
+    stuffname: '스팸',
+    icon: 'https://m.cj.co.kr/resources/img/brand/spam_b_obj_2.png',
+    category_name: ['가공품'],
+    limitday: "2020-03-30",
+}, {
+    id: 7,
+    stuffname: '간장',
+    limitday: "2020-05-31",
+    category_name: ['가공품'],
+    icon: 'https://www.amway.co.kr/_ui/responsive/theme-blue/images/akl_product/one-for-one/cont_soy_sauce_01.png',
+}, {
+    id: 8,
+    stuffname: '참기름',
+    limitday: "2020-05-30",
+    category_name: ['가공품'],
+    icon: 'https://d2nic58uh63efu.cloudfront.net/product/8801045440743.png',
+}, {
+    id: 9,
+    stuffname: '대파',
+    limitday: "2020-05-30",
+    category_name: ['채소'],
+    icon: 'https://t1.daumcdn.net/cfile/tistory/9972454B5D4B099034',
+}, {
+    id: 10,
+    stuffname: '양파',
+    limitday: "2020-05-30",
+    category_name: ['채소'],
+    icon: 'https://langustdesign.ru/wp-content/uploads/2019/825666.png',
+}];
