@@ -8,7 +8,7 @@ import Result from './pages/Result';
 import Recipe from './pages/Recipe';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Mypage from './mypage/Mypage';
+import Mypage from './pages/mypage/Mypage';
 import axios from 'axios';
 import { fakeData } from './fakeData';
 import { fakeData_r } from './fakeData_r';
